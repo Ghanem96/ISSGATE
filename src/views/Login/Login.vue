@@ -7,7 +7,7 @@
                         <v-form fast-fail @submit.prevent="login">
                                 <v-text-field variant="underlined" v-model="username" label="User Name"></v-text-field>
 
-                                <v-text-field variant="underlined" v-model="password" label="password"></v-text-field>
+                                <v-text-field type="password" variant="underlined" v-model="password" label="password"></v-text-field>
                                 <a href="#" class="text-body-2 font-weight-regular">Forgot Password?</a>
 
                                 <v-btn type="submit" variant="outlined" color="primary" block class="mt-2">Sign in</v-btn>
@@ -43,12 +43,12 @@ export default {
                                 const response = await axios.post("https://interview.issgate.com/api/Auth/Authenticate", params);
                                 console.log(response.data);
                                 if (response.data.IsSuccess) {
+                                        this.$router.push('/Home');
                                         localStorage.setItem('Token', response.data.Data.Token);
                                         localStorage.setItem('UserData', JSON.stringify(response.data.Data));
-                                        this.$router.push('/Home');
                                         setTimeout(() => {
                                                 location.reload();
-                                        }, 20);
+                                        }, 50);
                                 }
                         } catch (error) {
                                 console.error(error);

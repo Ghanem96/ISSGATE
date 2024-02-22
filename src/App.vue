@@ -15,7 +15,7 @@
       <v-sheet color="grey-lighten-4" class="pa-4">
         <v-avatar class="mb-4" color="grey-darken-1" size="64"></v-avatar>
 
-        <div>{{ UserData.userName }}</div>
+        <div>{{ UserData.FullName }}</div>
       </v-sheet>
 
       <v-divider></v-divider>
@@ -65,7 +65,8 @@ export default {
     ],
   }),
   created() {
-    this.UserData = localStorage.getItem('UserData')?localStorage.getItem('UserData'):null
+    this.UserData = localStorage.getItem('UserData')?localStorage.getItem('UserData'):null;
+    this.UserData = JSON.parse(this.UserData);
     if (!localStorage.getItem('Token')) {
       this.isLogin = false;      
         this.$router.push('/login');
