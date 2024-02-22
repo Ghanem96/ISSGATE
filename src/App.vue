@@ -52,7 +52,6 @@ const drawer = ref(null)
 </script>
 
 <script>
-import { LogOut  } from 'lucide-vue-next';
 export default {
   data: () => ({
     cards: ['Today', 'Yesterday'],
