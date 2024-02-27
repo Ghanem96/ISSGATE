@@ -48,7 +48,7 @@ export default {
                                         localStorage.setItem('UserData', JSON.stringify(response.data.Data));
                                         setTimeout(() => {
                                                 location.reload();
-                                        }, 50);
+                                        }, 100);
                                 }
                         } catch (error) {
                                 console.error(error);
